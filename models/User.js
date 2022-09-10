@@ -34,7 +34,7 @@ const UserModel = new mongoose.Schema(
       type: String,
       required: true,
       max: 30,
-      min: 8,
+      min: 6,
     },
     courseTaken: {
       type: String,
