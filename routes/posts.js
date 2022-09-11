@@ -59,6 +59,20 @@ router.put("/:id/like", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//GET ALL POSTS
+router.get("/", async (req, res) => {
+  const q = req.query.new;
+  try {
+    const posts = q
+      ? await Post.find().sort({ _id: -1 }).limit(5)
+      : await Post.find();
+    return res.status(200).json(posts);
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
 //get a post
 
 router.get("/:id", async (req, res) => {
